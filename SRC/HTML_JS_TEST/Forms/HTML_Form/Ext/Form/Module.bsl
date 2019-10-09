@@ -51,12 +51,20 @@
 
 &НаКлиенте
 Процедура Выполнить_display_div(сИДБлока)
-	Элементы.HTML_Fild.Документ.parentWindow.display_div(сИДБлока);
+	Если Лев(Элементы.HTML_Fild.ИнформацияПрограммыПросмотра, 11) = "Mozilla/5.0" Тогда
+		Элементы.HTML_Fild.Документ.defaultView.display_div(сИДБлока);
+	Иначе
+		Элементы.HTML_Fild.Документ.parentWindow.display_div(сИДБлока);
+	КонецЕсли;
 КонецПроцедуры
 
 &НаКлиенте
 Процедура Выполнить_hidden_div(сИДБлока)
-	Элементы.HTML_Fild.Документ.parentWindow.hidden_div(сИДБлока);
+	Если Лев(Элементы.HTML_Fild.ИнформацияПрограммыПросмотра, 11) = "Mozilla/5.0" Тогда
+		Элементы.HTML_Fild.Документ.defaultView.hidden_div(сИДБлока);
+	Иначе
+		Элементы.HTML_Fild.Документ.parentWindow.hidden_div(сИДБлока);
+	КонецЕсли;
 КонецПроцедуры
 
 #КонецОбласти
